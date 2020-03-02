@@ -24,7 +24,7 @@ export default class App extends Component {
                 <h1>{this.state.title}</h1>
                 <h1>{message}</h1>
                 <h1>{dom}</h1>
-                <h1 className="box" title={this.state.title}></h1>
+        <h1 className="box" title={this.state.title}>{}</h1>
                 <div className={'box '+this.state.cName +' '+this.state.cName2+' '+(this.state.active?'active':'')}></div>
                 <div style={{
                     background:'pink',
