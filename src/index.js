@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+//import store from './store'
+
 // let dom = <div>hello word</div>
 // let dom2 = React.createElement(
 //     'h1',
