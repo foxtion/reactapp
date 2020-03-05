@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import store from './store'
+import {Provider} from 'react-redux'
 //import store from './store'
 
 // let dom = <div>hello word</div>
@@ -20,7 +22,10 @@ import App from './App'
 //参数3：渲染完成的回调方法
 ReactDOM.render(
     //[dom,dom2],
-    <App/>,
+    //给全局提供store
+    <Provider store={store}>
+        <App/>
+    </Provider>,
     document.querySelector('#root'),
     () => {
         console.log('渲染完成')

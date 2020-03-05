@@ -1,23 +1,18 @@
 import React, { Component } from 'react'
-import store from '../store'
-export default class List extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      listData: store.getState().listData,
-      status:store.getState().status
-    }
-  }
+import { connect } from 'react-redux'
+ class List extends Component {
   render () {
+    console.log('render list')
     //根据状态过滤列表
-    let showList = this.state.listData.filter(item=>{
-      return (this.state.status === 'all') ? true : (this.state.status === item.status)
+    let {listData,status,finishAction} = this.props
+    let showList = listData.filter(item=>{
+      return (status === 'all') ? true : (status === item.status)
     })
     //展示列表
     let listDOM = showList.map(item=>{
      return <li key={item.id}>
         <span>{item.value}</span>
-        {item.status === 'todo' && <button onClick={this.finishAction.bind(this,item.id)}>完成</button>}
+        {item.status === 'todo' && <button onClick={finishAction.bind(this,item.id)}>完成</button>}
       </li>
     })
     return (
@@ -29,25 +24,25 @@ export default class List extends Component {
       </div>
     )
   }
-  
-  finishAction(id){
-    console.log(id)
-    store.dispatch({
-      type:'finish',
-      value:id
-    })
-  }
-  componentDidMount () {
-    //监听数据变化，将新的数据转化为组件内部的数据
-    this.unSubscribe = store.subscribe(() => {
-      this.setState({
-        status: store.getState().status,
-        listData: store.getState().listData
-      })
-    })
-  }
-  componentWillUnmount(){
-    //移除监听
-    this.unSubscribe()
+}
+
+const mapStateToProps = (state)=>{
+  return {
+    status:state.status,
+    listData:state.listData
   }
 }
+
+const mapDispathToProps = (dispatch)=>{
+  return {
+    finishAction(id){
+      console.log(id)
+      dispatch({
+        type:'finish',
+        value:id
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispathToProps)(List)
