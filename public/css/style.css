@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
+html,body,.app{
+  width: 100%;
+  height: 100%;
+  color: #333;
+  background: #fafafa;
+}
+.tab-bar{
+  width: 100%;
+  height: 49px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  background: #fff;
+}
+.tab-bar .tab-item {
+  flex: 1;
+  text-align: center;
+  line-height: 49px;
+}
+.tab-bar .tab-item .active{
+  color: red;
+  font-weight: bold;
+}
+.page{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 49px;
+}
+.page.subpage{
+  bottom: 49px;
+  z-index: 10;
+
+}
+#home{
+  background: lavender;
+}
+#discover{
+  background: lavenderblush;
+}
+#setting{
+  background: lemonchiffon;
+}
+#location{
+  background: pink;
+}
+#search{
+  background: #666;
+}
+#mine{
+  background: green;
+}
+#detail{
+  background: orange;
+}
+.nav-bar{
+  width: 100%;
+  height: 44px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.title{
+  width: 100%;
+  text-align: center;
+  line-height: 44px;
+  font-size: 16px;
+}
+.nav-bar .nav-btn{
+  position: absolute;
+  top: 5px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  box-sizing: border-box;
+}
+.nav-bar .nav-btn .nav-left-btn{
+  left: 0;
+}
+.nav-bar .nav-btn.nav-right-btn{
+  right: 0;
+}
+.content{
+  width: 100%;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+#home .list .item {
+  line-height: 50px;
+  border-bottom: 1px solid #ddd;
+}
